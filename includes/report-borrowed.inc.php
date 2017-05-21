@@ -25,8 +25,6 @@ catch(PDOException $e) {
 }
 ?>
 
-<h1>Borrowed</h1>
-
 <div id="table-head-bar">
     <div class="pull-left">
         Results: <span id="reports-total-results"><?php echo $num_logs; ?></span>

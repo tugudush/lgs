@@ -33,6 +33,11 @@ check_permissions();
             <?php //display_paths(); ?>            
             <div id="logs-message" class="message"></div>
             
+            <div id="reports-header" class="clearfix">
+                <img id="reports-logo" src="images/gc-logo.png">            
+                <h1>Gordon College</h1>    
+            </div><!--/reports-header-->            
+            
             <form id="report-form">
                 <div class="inner">
                     <select id="select-report" name="select_report" class="form-control">

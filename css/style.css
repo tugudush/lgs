@@ -473,9 +473,11 @@ table .form-control,
     cursor: pointer;
 }
 
-#page-reports 
-    
-    h1 {
+#reports-logo {
+    display: none;
+}
+
+#page-reports h1 {
     font-size: 15px;
     display: none;
     text-align: center;

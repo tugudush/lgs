@@ -24,15 +24,6 @@ catch(PDOException $e) {
 }
 ?>
 
-  
-<h1>
-   <p style="font-size:30px;paddin-bottom:0px;"" class="text-center"><b>GORDON COLLEGE</b></p>
-   <p>ALL REPORTS
-    </p>
-</h1>
-    
- 
-
 <div id="table-head-bar">
     <div class="pull-left">
         Results: <span id="reports-total-results"><?php echo $num_logs; ?></span>
