@@ -1,0 +1,122 @@
+/** tablet portrait and above **/
+@media (min-width: 768px) {    
+    #table-head-bar .pagination {
+        float: left;
+    }
+    
+    #table-head-bar #search-wrap {        
+        float: right;
+    }
+    
+    #table-head-bar input {
+        display: inline-block;
+    }
+    
+    #table-head-bar #search-wrap #search {
+       
+    }
+    
+    #table-head-bar #search-wrap #submit {
+        width: initial;
+    }
+    
+    #add-log, #log-preview {
+        float: left;
+    }
+    
+    #log-preview {
+        margin-left: 20px;
+        min-width: 640px;
+    }
+    
+    #student-details {
+        float: left;
+        width: 40%;
+        border-right: 1px solid #EAEAEA;
+    }
+    
+    #book-details {
+        float: left;
+        width: 60%;
+    }
+    
+} /* end of @media (min-width: 768px) */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .table td,
+    .table .form-control {
+        font-size: 16px;
+        font-size: 1.6rem;
+    }
+} /* end of @media (min-width: 768px) and (max-width: 1024px) */
+
+/** desktop **/
+@media (min-width: 1200px) {
+    .wrap,
+    .navbar-wrap {
+        max-width: 1200px;
+    }
+} /* end of @media (min-width: 1200px) */
+
+@media (min-width: 1600px) {
+    .wrap,
+    .navbar-wrap {
+        max-width: 1600px;
+    }
+} /* end of @media (min-width: 1200px) */
+
+/** tablet landscape and lower **/
+@media (max-width: 1024px) {
+    .wrap,
+    .navbar-wrap {
+        max-width: 960px;
+    }    
+} /* end of @media (max-width: 1024px) */
+
+/** tablet portrait and lower **/
+@media (max-width: 768px) {    
+    .wrap {
+        max-width: initial;
+        padding: 15px;
+    }
+    
+    .navbar-wrap {
+        max-width: initial;
+        padding: 0 15px;
+    }
+} /* end of @media (max-width: 768px) */
+
+/** mobile devices **/
+@media (max-width: 767px) {
+    
+    body {
+        
+    }
+    
+    #table-head-bar #search-wrap #search {
+        width: 246px;
+    }
+    
+    #search-wrap .add-log,
+    #search-wrap #search-form,   
+    #search-wrap #filter-status {
+        display: table;
+        float: none;
+        clear: both;
+        margin: 5px auto 0;
+    }
+    
+    #log-preview {
+        width: 290px;
+    }
+    
+    #book-details {
+        margin-top: 20px;
+    }
+} /* end of @media (max-width: 767px) */
+
+@media (max-width: 767px) and (orientation: portrait) {    
+    body {
+/*        background-image: none;*/
+    }
+} /* end of @media (max-width: 767px) */
