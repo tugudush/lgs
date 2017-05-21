@@ -1,0 +1,8 @@
+[21-May-2017 22:07:50 Asia/Manila] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in C:\Apache24\htdocs\lgs\config.inc.php:75
+Stack trace:
+#0 C:\Apache24\htdocs\lgs\config.inc.php(75): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 C:\Apache24\htdocs\lgs\functions.inc.php(161): connect()
+#2 C:\Apache24\htdocs\lgs\functions.inc.php(159): is_editable_date()
+#3 C:\Apache24\htdocs\lgs\index.php(4): require_once('C:\\Apache24\\htd...')
+#4 {main}
+  thrown in C:\Apache24\htdocs\lgs\config.inc.php on line 75

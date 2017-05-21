@@ -24,9 +24,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $insert = $pdo->prepare($query);
         $insert->bindValue(':id_no', $id_no, PDO::PARAM_STR);
         $insert->bindValue(':fname', $fname, PDO::PARAM_STR);
-        $insert->bindValue(':mname', $mname, PDO::PARAM_STR);
+        if ($mname == null) {
+            $insert->bindValue(':mname', null, PDO::PARAM_STR);    
+        } // end of if ($mname == null)
+        else {
+            $insert->bindValue(':mname', $mname, PDO::PARAM_STR);
+        } // end of elseif ($mname != null)
+        
         $insert->bindValue(':lname', $lname, PDO::PARAM_STR);
-        $insert->bindValue(':course', $course, PDO::PARAM_STR);
+        $insert->bindValue(':course', $course, PDO::PARAM_STR);        
+        
+        $query_utf8mb4 = "SET NAMES utf8mb4";
+        $utf8mb4 = $pdo->prepare($query_utf8mb4);
+        $utf8mb4->execute();
         
         $insert->execute();
         $num_insert = $insert->rowCount();

@@ -27,6 +27,7 @@ try {
                        WHERE
                        id_no LIKE :id_no OR
                        fname LIKE :fname OR
+                       mname LIKE :mname OR
                        lname LIKE :lname OR
                        course LIKE :course
                        ORDER BY fname, lname, course";
@@ -34,6 +35,7 @@ try {
     $students = $pdo->prepare($query_students);
     $students->bindValue(':id_no', "%$search%", PDO::PARAM_STR);
     $students->bindValue(':fname', "%$search%", PDO::PARAM_STR);
+    $students->bindValue(':mname', "%$search%", PDO::PARAM_STR);
     $students->bindValue(':lname', "%$search%", PDO::PARAM_STR);
     $students->bindValue(':course', "%$search%", PDO::PARAM_STR);
     
@@ -41,6 +43,7 @@ try {
                              WHERE
                              id_no LIKE :id_no OR
                              fname LIKE :fname OR
+                             mname LIKE :mname OR
                              lname LIKE :lname OR
                              course LIKE :course
                              ORDER BY fname, lname, course
@@ -49,14 +52,11 @@ try {
     $limit_students = $pdo->prepare($query_limit_students);    
     $limit_students->bindValue(':id_no', "%$search%", PDO::PARAM_STR);
     $limit_students->bindValue(':fname', "%$search%", PDO::PARAM_STR);
+    $limit_students->bindValue(':mname', "%$search%", PDO::PARAM_STR);
     $limit_students->bindValue(':lname', "%$search%", PDO::PARAM_STR);
     $limit_students->bindValue(':course', "%$search%", PDO::PARAM_STR);
     $limit_students->bindValue(':offset', $offset, PDO::PARAM_INT);
     $limit_students->bindValue(':count', $count, PDO::PARAM_INT);
-    
-    $query_utf8mb4 = "SET NAMES utf8mb4";
-    $utf8mb4 = $pdo->prepare($query_utf8mb4);
-    $utf8mb4->execute();
     
     $students->execute();
     $num_students = $students->rowCount();
@@ -160,6 +160,7 @@ catch(PDOException $e) {
                     <tr>
                         <th>ID No.</th>                        
                         <th>First Name</th>
+                        <th>Middle Name</th>
                         <th>Last Name</th>
                         <th>Course</th>                        
                         <th>&nbsp;</th>
@@ -169,6 +170,7 @@ catch(PDOException $e) {
                         $student_id = $row['student_id'];
                         $id_no = $row['id_no'];
                         $fname = $row['fname'];
+                        $mname = $row['mname'];
                         $lname = $row['lname'];
                         $name = $fname.' '.$lname;
                         $course = $row['course'];
@@ -181,6 +183,10 @@ catch(PDOException $e) {
                         <td>
                             <span class="fname row-col-data"><?php echo $fname; ?></span>
                             <input class="input-fname form-control" type="text" value="<?php echo $fname; ?>">
+                        </td>
+                        <td>
+                            <span class="mname row-col-data"><?php echo $mname; ?></span>
+                            <input class="input-mname form-control" type="text" value="<?php echo $mname; ?>">
                         </td>
                         <td>
                             <span class="lname row-col-data"><?php echo $lname; ?></span>

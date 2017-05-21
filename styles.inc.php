@@ -4,7 +4,7 @@
 <link href="<?php echo $site_url; ?>/css/jquery.datetimepicker.css" rel="stylesheet">
 <link href="<?php echo $site_url; ?>/css/font-awesome.css" rel="stylesheet">
 <link href="<?php echo $site_url; ?>/css/fonts.css" rel="stylesheet">
-<link href="<?php echo $site_url; ?>/css/presets.css?v=2.0" rel="stylesheet">
-<link href="<?php echo $site_url; ?>/css/style.css?v=2.0" rel="stylesheet">
-<link href="<?php echo $site_url; ?>/css/media.css?v=2.0" rel="stylesheet">
-<link href="<?php echo $site_url; ?>/css/print.css?v=2.0" rel="stylesheet">
+<link href="<?php echo $site_url; ?>/css/presets.css?v=0.5.4" rel="stylesheet">
+<link href="<?php echo $site_url; ?>/css/style.css?v=0.5.4" rel="stylesheet">
+<link href="<?php echo $site_url; ?>/css/media.css?v=0.5.4" rel="stylesheet">
+<link href="<?php echo $site_url; ?>/css/print.css?v=0.5.4" rel="stylesheet">

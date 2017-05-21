@@ -7,14 +7,20 @@ verify_session();
 check_permissions();
 
 $id_no = $username;
-if (isset($_GET['id_no'])) {
-    $id_no = $_GET['id_no'];
-} // end of if (isset($_GET['id_no']))
+
+if(isset($_GET['id_no'])) {
+    $id_no = $_GET['id_no'];    
+} // end of if(isset($_GET['id_no']))
 
 try {
     $query_student = "SELECT * FROM students WHERE id_no = :id_no";
     $student = $pdo->prepare($query_student);
-    $student->bindValue(':id_no', $id_no, PDO::PARAM_STR);
+    if(isset($_GET['id_no'])) {
+        $student->bindValue(':id_no', $id_no, PDO::PARAM_STR);
+    } // end of if(isset($_GET['id_no']))
+    else {
+        $student->bindValue(':id_no', $username, PDO::PARAM_STR);
+    } // end of elseif(!isset($_GET['id_no']))    
     $student->execute();
     $row_student = $student->fetch(PDO::FETCH_ASSOC);
     $fname = $row_student['fname'];
@@ -74,23 +80,21 @@ catch(PDOException $e) {
                 Course: <?php echo $course; ?>
             </div><!--/student-profile-->
             
-            <h2>Change Password</h2>
-            <form id="change-password">
-                <input type="hidden" id="username" name="username" value="<?php echo $username; ?>">
-                <input type="password" id="current-password" name="current_password" class="form-control" placeholder="Current Password" required>
-                <input type="password" id="new-password" name="new_password" class="form-control" placeholder="New Password" required>
-                <input type="submit" id="submit" name="submit" class="form-control btn btn-danger" value="Change">
-                <div id="change-password-message">&nbsp;</div>
-            </form><!--/change-password-->
-            
-            <input type="hidden" id="pod" value="<?php echo $pod; ?>">
-            <input type="hidden" id="ppd" value="<?php echo $ppd; ?>">
+            <?php if($user_role == 'student'): ?>
+                <h2>Change Password</h2>
+                <form id="change-password">
+                    <input type="hidden" id="username" name="username" value="<?php echo $username; ?>">
+                    <input type="password" id="current-password" name="current_password" class="form-control" placeholder="Current Password" required>
+                    <input type="password" id="new-password" name="new_password" class="form-control" placeholder="New Password" required>
+                    <input type="submit" id="submit" name="submit" class="form-control btn btn-danger" value="Change">
+                    <div id="change-password-message">&nbsp;</div>
+                </form><!--/change-password-->
+            <?php endif; ?>
             
             <h2>Transactions</h2>
-            <div id="penalties">
-                Unpaid Penalties: <span id="unpaid-penalties"></span><br>
-                Paid Penalties: <span id="paid-penalties"></span>
-            </div><!--/penalties-->
+            <input type="hidden" id="pod" name="pod" value="<?php echo $pod; ?>">
+            Unpaid Penalties: <span id="total-payables"></span><br>
+            Paid Penalties: <span id="total-paid"></span>
             <div id="logs-wrap" class="table-responsive">
                 <table id="logs" class="table table-hover">
                     <tr>                        
@@ -124,10 +128,28 @@ catch(PDOException $e) {
                     ?>
                     <tr class="log-row">
                         <td><?php echo $title; ?></td>
-                        <td><?php echo $status; ?></td>
+                        <td>
+                            <?php
+                            if ($status == 'lost') {
+                                echo '<span class="text-danger" style="font-weight:bold;">'.$status.'</span>';
+                            }
+                            else {
+                                echo $status;
+                            }
+                            ?>
+                        </td>
                         <td><?php echo $borrowed_datetime; ?></td>
                         <td><?php echo $returned_datetime; ?></td>
-                        <td class="row-col-days"><?php echo $days; ?></td>
+                        <td class="row-col-days">
+                            <?php
+                            if ($days >= $pod) {
+                                echo '<span class="text-danger" style="font-weight: bold;">'.$days.'</span>';
+                            }
+                            else {
+                                echo $days;
+                            }
+                            ?>
+                        </td>
                         <td class="row-col-penalty"><?php echo $penalty; ?></td>
                         <td class="row-col-paid"><?php echo $paid; ?></td>
                     </tr>

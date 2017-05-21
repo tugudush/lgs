@@ -1,6 +1,38 @@
 [17-May-2017 02:50:34 Asia/Manila] PHP Notice:  Undefined index: borrowed_datetime in C:\Apache24\htdocs\lgs\controller\insert-log.inc.php on line 13
 [17-May-2017 02:51:07 Asia/Manila] PHP Notice:  Undefined index: borrowed_datetime in C:\Apache24\htdocs\lgs\controller\insert-log.inc.php on line 13
-[21-May-2017 02:07:02 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
-[21-May-2017 02:07:02 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
-[21-May-2017 02:07:39 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
-[21-May-2017 02:07:39 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[17-May-2017 23:51:35 UTC] PHP Parse error:  syntax error, unexpected '$lname' (T_VARIABLE), expecting ')' in C:\Apache24\htdocs\lgs\controller\register.inc.php on line 98
+[18-May-2017 08:17:00 Asia/Manila] PHP Notice:  Undefined variable: dn_mname in C:\Apache24\htdocs\lgs\controller\register.inc.php on line 37
+[18-May-2017 08:51:12 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:12 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:21 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:21 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:23 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:23 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:40 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:40 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:47 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:47 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:51 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:51:51 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:52:03 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:52:03 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:52:04 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:52:04 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:52:05 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:52:05 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:52:19 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 08:52:19 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:35:27 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:35:27 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:35:28 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:35:28 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:35:29 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:35:29 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:35:33 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:35:33 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:36:43 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:36:43 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:36:54 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:36:54 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:37:09 Asia/Manila] PHP Notice:  Undefined variable: insert in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33
+[18-May-2017 10:37:09 Asia/Manila] PHP Fatal error:  Call to a member function bindValue() on null in C:\Apache24\htdocs\lgs\controller\update-book.inc.php on line 33

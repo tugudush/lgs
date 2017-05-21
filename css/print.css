@@ -3,9 +3,21 @@
     #report-form,
     .print {
         display: none;
-    }    
-    
-    #page-reports h1 {
+   
+   
+    }
+    #page-reports h1{
         display: block;
     }
+
 } /* end of @media print */
+
+ @media print{
+ 	#toNewWindow{
+ 		display: none;
+ 		display: block;
+
+ 	}
+
+
+ }

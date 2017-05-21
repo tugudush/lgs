@@ -25,7 +25,7 @@ catch(PDOException $e) {
 }
 ?>
 
-<h1>Lost (Unpaid)</h1>
+<h1>(Unpaid)</h1>
 
 <div id="table-head-bar">
     <div class="pull-left">

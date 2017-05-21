@@ -28,7 +28,7 @@ foreach($rows_limit_logs as $row):
 ?>    
         <tr id="log-id-<?php echo $log_id; ?>" class="log-row">
             <!-- <td><?php echo $log_id; ?></td> -->
-            <td class="id-no"><?php echo $id_no; ?></td>
+            <td class="row-col-data"><span class="id-no"><?php echo $id_no; ?></span></td>
             <td><span class="name"><?php echo $name; ?></span></td>
             <td title="<?php echo $title; ?>">
                 <input type="hidden" class="book-id" value="<?php echo $book_id; ?>">

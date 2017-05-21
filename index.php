@@ -112,7 +112,7 @@ catch(PDOException $e) {
 <head>
     <?php require_once('meta.inc.php'); ?>
     <meta name="description" content="Library Gateway System">
-    <title>Library Gateway System</title>
+    <title>Library Gateway/Borrowing System</title>
     
     <!-- CSS -->
     <?php require_once('styles.inc.php'); ?>

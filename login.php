@@ -25,8 +25,10 @@ $pdo = connect();
 
     <div id="container">
         
-        <div class="wrap">            
-            <h1>Library Gateway System</h1>
+        <div class="wrap">     
+                <div id = "kayl">       
+            <h1>Library Gateway/Borrowing System</h1>
+                </div>
             <div class="message">&nbsp;</div>
             
             <form id="login-form" class="lr-form">

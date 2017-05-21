@@ -1,10 +1,10 @@
 <form id="add-student">
     <div id="students-message" class="message" required></div>    
-    <input id="id-no" name="id_no" class="form-control" type="text" placeholder="ID No." required>
+    <input id="id-no" name="id_no" class="form-control" type="number" min="0" placeholder="ID No." required>
     <input id="fname" name="fname" class="form-control" type="text" placeholder="First Name" required>
     <input id="mname" name="mname" class="form-control" type="text" placeholder="Middle Name">
     <input id="lname" name="lname" class="form-control" type="text" placeholder="Last Name" required>
-    <select id="course" name="course" class="form-control">
+    <select id="course" name="course" class="form-control" required>
         <option value="">Course</option>
         <option value="ABCOMM">ABCOMM</option>
         <option value="ACT">ACT</option>
