@@ -25,7 +25,7 @@ $(document).ready(function () {
     confirm_delete_book();
     confirm_delete_student();
     profile_penalties();
-    reports();
+    reports();    
     print();
 
     function login() {
@@ -1177,8 +1177,8 @@ $(document).ready(function () {
                 } // end of if (paid == 'yes')
             }); // end of $('.log-row').each(function()
             
-            $('#total-payables').html('&#8369;'+total_payables);
-            $('#total-paid').html('&#8369;'+total_paid);
+            $('#unpaid-penalties').html('&#8369;'+total_payables);
+            $('#paid-penalties').html('&#8369;'+total_paid);
         } // end of if ($('#page-student-profile').length)
     } // end of function profile_penalties()
     

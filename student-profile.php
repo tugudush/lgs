@@ -83,7 +83,14 @@ catch(PDOException $e) {
                 <div id="change-password-message">&nbsp;</div>
             </form><!--/change-password-->
             
+            <input type="hidden" id="pod" value="<?php echo $pod; ?>">
+            <input type="hidden" id="ppd" value="<?php echo $ppd; ?>">
+            
             <h2>Transactions</h2>
+            <div id="penalties">
+                Unpaid Penalties: <span id="unpaid-penalties"></span><br>
+                Paid Penalties: <span id="paid-penalties"></span>
+            </div><!--/penalties-->
             <div id="logs-wrap" class="table-responsive">
                 <table id="logs" class="table table-hover">
                     <tr>                        
@@ -115,14 +122,14 @@ catch(PDOException $e) {
                             $penalty = $price;
                         } // end of if ($status == 'lost')
                     ?>
-                    <tr>
+                    <tr class="log-row">
                         <td><?php echo $title; ?></td>
                         <td><?php echo $status; ?></td>
                         <td><?php echo $borrowed_datetime; ?></td>
                         <td><?php echo $returned_datetime; ?></td>
-                        <td><?php echo $days; ?></td>
-                        <td><?php echo $penalty; ?></td>
-                        <td><?php echo $paid; ?></td>
+                        <td class="row-col-days"><?php echo $days; ?></td>
+                        <td class="row-col-penalty"><?php echo $penalty; ?></td>
+                        <td class="row-col-paid"><?php echo $paid; ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </table><!--/logs-->
