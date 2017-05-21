@@ -13,5 +13,5 @@
 <script src="<?php echo $site_url; ?>/js/gsap/plugins/CSSPlugin.js"></script>
 <script src="<?php echo $site_url; ?>/js/gsap/plugins/ScrollToPlugin.js"></script>
 <script src="<?php echo $site_url; ?>/js/skrollr.js"></script>
-<script src="<?php echo $site_url; ?>/js/main.js?v=1.0"></script>
-<script src="<?php echo $site_url; ?>/js/functions.js?v=1.0"></script>
+<script src="<?php echo $site_url; ?>/js/main.js?v=2.0"></script>
+<script src="<?php echo $site_url; ?>/js/functions.js?v=2.0"></script>
