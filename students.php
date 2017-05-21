@@ -169,6 +169,7 @@ catch(PDOException $e) {
                         $student_id = $row['student_id'];
                         $id_no = $row['id_no'];
                         $fname = $row['fname'];
+                        $mname = $row['mname'];
                         $lname = $row['lname'];
                         $name = $fname.' '.$lname;
                         $course = $row['course'];
@@ -181,6 +182,10 @@ catch(PDOException $e) {
                         <td>
                             <span class="fname row-col-data"><?php echo $fname; ?></span>
                             <input class="input-fname form-control" type="text" value="<?php echo $fname; ?>">
+                        </td>
+                        <td>
+                            <span class="mname row-col-data"><?php echo $mname; ?></span>
+                            <input class="input-mname form-control" type="text" value="<?php echo $mname; ?>">
                         </td>
                         <td>
                             <span class="lname row-col-data"><?php echo $lname; ?></span>
