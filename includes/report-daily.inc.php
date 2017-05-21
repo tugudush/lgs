@@ -46,7 +46,8 @@ catch(PDOException $e) {
         <tr>            
             <th>ID No.</th>
             <th>Name</th>                        
-            <th>Book</th>            
+            <th>Book</th>
+            <th>Status</th>
             <th>Borrowed</th>
             <th>Returned</th>                                                
             <th>Days Interval</th>
@@ -83,6 +84,7 @@ catch(PDOException $e) {
                 <td><?php echo $id_no; ?></td>
                 <td><?php echo $name; ?></td>
                 <td><?php echo $title; ?></td>
+                <td><?php echo $status; ?></td>
                 <td><?php echo $borrowed_datetime; ?></td>
                 <td><?php echo $returned_datetime; ?></td>
                 <td><?php echo $days; ?></td>
