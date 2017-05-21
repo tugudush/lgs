@@ -708,14 +708,14 @@ $(document).ready(function () {
     } // end of function check_penalties()
     
     function student_profile_link() {
-        $('#logs .id-no, #logs .name, #students .id-no, #students .fname, #students .mname, #students .lname').parent('td').css('cursor', 'pointer');
-        $('#students .id-no, #students .fname, #students .mname, #students .lname').parent('td').click(function(e) {
+        $('#logs .id-no, #logs .name, #students .id-no, #students .fname, #students .mname, #students .lname').css('cursor', 'pointer');
+        $('#students .id-no, #students .fname, #students .mname, #students .lname').click(function(e) {
             e.preventDefault();
             var id_no = $(this).parents('.student-row').find('.id-no').text();
             window.location = 'student-profile.php?id_no='+id_no;
         }); // end of $('#students .fname, #students .mname, #students .lname').click(function(e)
         
-        $('#logs .id-no, #logs .name').parent('td').click(function(e) {
+        $('#logs .id-no, #logs .name').click(function(e) {
             e.preventDefault();
             var id_no = $(this).parents('.log-row').find('.id-no').text();
             window.location = 'student-profile.php?id_no='+id_no;
