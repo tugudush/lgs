@@ -249,7 +249,7 @@ $(document).ready(function () {
     } // end of function validate_fname_process(fname)
     
     function valid_name(name) {
-        if (name.match('^[a-zA-Z\u00E0-\u00FC+\. ]{0,}$')) {
+        if (name.match('^[a-zA-Z\u00E0-\u00FC]*$')) {
             return true;
         } else {            
             return false;
@@ -1063,7 +1063,7 @@ $(document).ready(function () {
             e = e || window.event;
             var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
             var charStr = String.fromCharCode(charCode);
-            if (/\d/.test(charStr)) {
+            if (!charStr.match('^[a-zA-Z\u00E0-\u00FC]*$')) {
                 e.preventDefault();
             }
         }); // end of $('#page-login #username, #page-login #password').keyup(function(e)
@@ -1184,6 +1184,38 @@ $(document).ready(function () {
         } // end of if ($('#page-student-profile').length)
     } // end of function profile_penalties()
     
+    function reports_penalties() {
+        if ($('#page-reports').length) {
+            var total_payables = 0;
+            var total_paid = 0;
+            var pod = $('#pod').val();
+            
+            $('.log-row').each(function() {
+                var days = $(this).find('.row-col-days').text();
+                days = parseInt(days);
+                var paid = $(this).find('.row-col-paid').text();
+                var penalty = $(this).find('.row-col-penalty').text();
+                penalty = parseFloat(penalty);
+                
+                if (paid == '') {
+                    console.log('paid blank')
+                }
+                
+                if (days >= pod && paid == '') {
+                    total_payables += penalty;
+                } // end of if (days >= pod)
+                
+                if (paid == 'yes') {
+                    total_paid += penalty;
+                } // end of if (paid == 'yes')
+            }); // end of $('.log-row').each(function()
+            
+            $('#total-payables').html('&#8369;'+total_payables);
+            $('#total-paid').html('&#8369;'+total_paid);
+            $('#page-reports #total-penalties').show();
+        } // end of if ($('#page-student-profile').length)
+    } // end of function reports_penalties()
+    
     function reports() {
         $('#select-report').change(function () {
             var filter = $(this).val();
@@ -1205,25 +1237,46 @@ $(document).ready(function () {
             
             switch(filter) {
                 case 'all':
-                    $('#load-report').load('includes/report-all.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-all.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'borrowed':
-                    $('#load-report').load('includes/report-borrowed.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-borrowed.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'overdue':
-                    $('#load-report').load('includes/report-overdue.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-overdue.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'returned':
-                    $('#load-report').load('includes/report-returned.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-returned.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'daily':
-                    $('#load-report').load('includes/report-daily.inc.php', {date: date}, function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-daily.inc.php', {date: date}, function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'lost':
-                    $('#load-report').load('includes/report-lost.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-lost.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'lost-unpaid':
-                    $('#load-report').load('includes/report-lost-unpaid.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-lost-unpaid.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 default:
             } // end of switch(filter)
@@ -1231,6 +1284,16 @@ $(document).ready(function () {
             //console.log('filter: '+filter);            
         }); // end of $('#report-form').submit(function(e)
     } // end of function reports()
+    
+    function row_counter() {
+        var row_counter = 0
+        $('#page-reports #logs tr').each(function() {
+            row_counter++;
+        }); // end of $('#page-reports #logs tr').each(function()
+        var total_rows = row_counter - 1;
+        console.log('total_rows: '+total_rows);
+        $('#reports-total-results').text(total_rows);
+    } // end of $.fn.row_counter = function()
     
     function print() {
         $(document).on('click', '.print', function(e) {
@@ -1279,13 +1342,3 @@ $(document).ready(function () {
     })();
 
 }); // end of $(document).ready(function()
-
-$.fn.row_counter = function() {
-    var row_counter = 0
-    $('#page-reports #logs tr').each(function() {
-        row_counter++;
-    }); // end of $('#page-reports #logs tr').each(function()
-    var total_rows = row_counter - 1;
-    console.log('total_rows: '+total_rows);
-    $('#reports-total-results').text(total_rows);
-} // end of $.fn.row_counter = function()

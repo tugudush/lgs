@@ -93,8 +93,12 @@ catch(PDOException $e) {
             
             <h2>Transactions</h2>
             <input type="hidden" id="pod" name="pod" value="<?php echo $pod; ?>">
-            Unpaid Penalties: <span id="total-payables"></span><br>
-            Paid Penalties: <span id="total-paid"></span>
+            
+            <div id="total-penalties">
+                Unpaid Penalties: <span id="total-payables"></span><br>
+                Paid Penalties: <span id="total-paid"></span>
+            </div><!--/total-penalties-->
+            
             <div id="logs-wrap" class="table-responsive">
                 <table id="logs" class="table table-hover">
                     <tr>                        

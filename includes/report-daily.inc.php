@@ -80,16 +80,16 @@ catch(PDOException $e) {
                 $penalty = $price;
             } // end of if ($status == 'lost')
         ?>
-            <tr>
+            <tr class="log-row">
                 <td><?php echo $id_no; ?></td>
                 <td><?php echo $name; ?></td>
                 <td><?php echo $title; ?></td>
                 <td><?php echo $status; ?></td>
                 <td><?php echo $borrowed_datetime; ?></td>
                 <td><?php echo $returned_datetime; ?></td>
-                <td><?php echo $days; ?></td>
-                <td><?php echo $penalty; ?></td>
-                <td><?php echo $paid; ?></td>
+                <td class="row-col-days"><?php echo $days; ?></td>
+                <td class="row-col-penalty"><?php echo $penalty; ?></td>
+                <td class="row-col-paid"><?php echo $paid; ?></td>
             </tr>
         <?php
         endforeach;

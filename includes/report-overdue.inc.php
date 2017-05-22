@@ -44,7 +44,8 @@ catch(PDOException $e) {
             <th>Book</th>            
             <th>Borrowed</th>            
             <th>Days Interval</th>
-            <th>Penalty</th>                     
+            <th>Penalty</th>
+            <th>Paid</th>
         </tr>
         <?php
         foreach($row_logs as $row):
@@ -74,13 +75,14 @@ catch(PDOException $e) {
         
             if ($days >= $pod):
         ?>
-            <tr>
+            <tr class="log-row">
                 <td><?php echo $id_no; ?></td>
                 <td><?php echo $name; ?></td>
                 <td><?php echo $title; ?></td>
                 <td><?php echo $borrowed_datetime; ?></td>                
-                <td><?php echo $days; ?></td>
-                <td><?php echo $penalty; ?></td>                
+                <td class="row-col-days"><?php echo $days; ?></td>
+                <td class="row-col-penalty"><?php echo $penalty; ?></td>
+                <td class="row-col-paid"><?php echo $paid; ?></td>                
             </tr>
         <?php
             endif;

@@ -53,6 +53,11 @@ check_permissions();
                     <input type="submit" id="submit" name="submit" class="form-control btn btn-primary" value="Generate">
                 </div><!--/.inner-->
             </form>
+            <input type="hidden" id="pod" name="pod" value="<?php echo $pod; ?>">
+            <div id="total-penalties">                
+                Unpaid Penalties: <span id="total-payables"></span><br>
+                Paid Penalties: <span id="total-paid"></span>
+            </div><!--/total-penalties-->
             
             <div id="load-report">
                 

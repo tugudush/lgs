@@ -483,6 +483,10 @@ table .form-control,
     text-align: center;
 }
 
+#page-reports #total-penalties {
+    display: none;
+}
+
 #report-form {    
     
 }
