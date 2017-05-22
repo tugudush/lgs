@@ -56,7 +56,8 @@ check_permissions();
             <input type="hidden" id="pod" name="pod" value="<?php echo $pod; ?>">
             <div id="total-penalties">                
                 Unpaid Penalties: <span id="total-payables"></span><br>
-                Paid Penalties: <span id="total-paid"></span>
+                Paid Penalties: <span id="total-paid"></span><br>
+                Total Penalties: <span id="combined-penalties"></span>
             </div><!--/total-penalties-->
             
             <div id="load-report">

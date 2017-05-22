@@ -1188,6 +1188,7 @@ $(document).ready(function () {
         if ($('#page-reports').length) {
             var total_payables = 0;
             var total_paid = 0;
+            var combined_penalties = 0;
             var pod = $('#pod').val();
             
             $('.log-row').each(function() {
@@ -1195,12 +1196,8 @@ $(document).ready(function () {
                 days = parseInt(days);
                 var paid = $(this).find('.row-col-paid').text();
                 var penalty = $(this).find('.row-col-penalty').text();
-                penalty = parseFloat(penalty);
-                
-                if (paid == '') {
-                    console.log('paid blank')
-                }
-                
+                penalty = parseFloat(penalty);                
+                            
                 if (days >= pod && paid == '') {
                     total_payables += penalty;
                 } // end of if (days >= pod)
@@ -1208,10 +1205,15 @@ $(document).ready(function () {
                 if (paid == 'yes') {
                     total_paid += penalty;
                 } // end of if (paid == 'yes')
+                
+                
             }); // end of $('.log-row').each(function()
+            
+            var combined_penalties = total_payables + total_paid;
             
             $('#total-payables').html('&#8369;'+total_payables);
             $('#total-paid').html('&#8369;'+total_paid);
+            $('#combined-penalties').html('&#8369;'+combined_penalties);
             $('#page-reports #total-penalties').show();
         } // end of if ($('#page-student-profile').length)
     } // end of function reports_penalties()
