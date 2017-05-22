@@ -1209,11 +1209,11 @@ $(document).ready(function () {
                 
             }); // end of $('.log-row').each(function()
             
-            var combined_penalties = total_payables + total_paid;
+            var combined_penalties = total_payables + total_paid;            
             
-            $('#total-payables').html('&#8369;'+total_payables);
-            $('#total-paid').html('&#8369;'+total_paid);
-            $('#combined-penalties').html('&#8369;'+combined_penalties);
+            $('#total-payables').html('&#8369;'+$.number(total_payables));
+            $('#total-paid').html('&#8369;'+$.number(total_paid));
+            $('#combined-penalties').html('&#8369;'+$.number(combined_penalties));
             $('#page-reports #total-penalties').show();
         } // end of if ($('#page-student-profile').length)
     } // end of function reports_penalties()

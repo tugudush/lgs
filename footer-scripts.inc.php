@@ -2,6 +2,7 @@
 <script src="<?php echo $site_url; ?>/js/jquery-ui.js"></script>
 <!--<script src="<?php echo $site_url; ?>/js/jquery-migrate-3.0.0.js"></script>-->
 <script src="<?php echo $site_url; ?>/js/bootstrap.js"></script>
+<script src="<?php echo $site_url; ?>/js/jquery.number.js"></script>
 <script src="<?php echo $site_url; ?>/js/jquery.datetimepicker.full.js"></script>
 <script src="<?php echo $site_url; ?>/js/jquery.highlight.js"></script>
 <script src="<?php echo $site_url; ?>/js/ie10-viewport-bug-workaround.js"></script>
