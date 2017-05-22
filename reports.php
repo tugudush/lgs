@@ -35,7 +35,7 @@ check_permissions();
             
             <div id="reports-header" class="clearfix">
                 <img id="reports-logo" src="images/gc-logo.png">            
-                <h1>Gordon College</h1>    
+                <h1>Gordon College<br>Library Log Reports</h1>
             </div><!--/reports-header-->            
             
             <form id="report-form">

@@ -12,19 +12,15 @@
     
     #page-reports h1 {
         display: block;
+        margin-top: 10px;
         font-size: 32px;
         font-weight: bold;
     }
     
     #reports-logo {
-        display: block;
-        float: left;
+        display: block;        
         width: 150px;
-    }
-    
-    #reports-header h1 {
-        display: none;
-        float: left;
+        margin: 0 auto;
     }
     
     #logs {
