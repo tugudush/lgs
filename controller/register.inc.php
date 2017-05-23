@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $num_students = $students->rowCount();
         $row_student = $students->fetch(PDO::FETCH_ASSOC);
         $db_fname = $row_student['fname'];
+        $db_mname = $row_student['mname'];
         $db_lname = $row_student['lname'];
         
         if ($num_students >=1) {
@@ -104,7 +105,12 @@ function register_student($id_no, $fname, $mname, $lname, $course) {
         $insert_student = $pdo->prepare($query_insert_student);
         $insert_student->bindValue(':id_no', $id_no, PDO::PARAM_STR);
         $insert_student->bindValue(':fname', $fname, PDO::PARAM_STR);
-        $insert_student->bindValue(':mname', $fname, PDO::PARAM_STR);
+        if ($mname == null) {
+            $insert_student->bindValue(':mname', null, PDO::PARAM_STR);    
+        } // end of if ($mname == null)
+        else {
+            $insert_student->bindValue(':mname', $mname, PDO::PARAM_STR);
+        } // end of elseif ($mname != null)
         $insert_student->bindValue(':lname', $lname, PDO::PARAM_STR);
         $insert_student->bindValue(':course', $course, PDO::PARAM_STR);
         $is_success = $insert_student->execute();

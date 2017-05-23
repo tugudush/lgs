@@ -2,7 +2,7 @@
 <form id="add-log">
     
     <input type="hidden" id="student-id" name="student_id" value="<?php if($id_no){echo $row_student['student_id'];} ?>">
-    <input type="text" class="form-control" style="margin-top:0;" id="id-no" name="id_no" placeholder="ID No." value="<?php if ($id_no){echo $id_no;} ?>" required>
+    <input type="number" min="0" class="form-control" style="margin-top:0;" id="id-no" name="id_no" placeholder="ID No." value="<?php if ($id_no){echo $id_no;} ?>" required>
     <input type="text" class="form-control" id="search-book" name="search_book" placeholder="Search Book, Author, Genre, Year, ISBN, etc" value="<?php if($book_id) {echo $row_book['title'];} ?>" required>    
     <input type="hidden" id="book-id" name="book_id" value="<?php if($book_id) {echo $book_id;} ?>">
     <input type="text" class="form-control <?php if($is_editable_date){echo 'date-time-picker';} ?>" id="borrowed-datetime" name="borrowed_datetime" placeholder="Date &amp Time" value="<?php echo date('Y/m/d H:i'); ?>" <?php if(!$is_editable_date){echo 'readonly';} ?> required>    

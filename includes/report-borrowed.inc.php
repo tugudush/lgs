@@ -24,9 +24,16 @@ catch(PDOException $e) {
     echo 'PDOException: '.$e->getMessage();
 }
 ?>
-
-<h1>Borrowed</h1>
-
+    
+    <h1>
+         <span style="font-size: 20px">Borrowed</span>   
+    </h1>
+ <input type="hidden" id="pod" name="pod" value="<?php echo $pod; ?>">
+            <div id="total-penalties">                
+                Unpaid Penalties:<span id="total-payables"></span><br>
+                Paid Penalties: <span id="total-paid"></span><br>
+                <!-- Total Penalties:<span id="combined-penalties"></span> --> 
+                </div><!--/total-penalties-->
 <div id="table-head-bar">
     <div class="pull-left">
         Results: <span id="reports-total-results"><?php echo $num_logs; ?></span>
@@ -44,7 +51,8 @@ catch(PDOException $e) {
             <th>Book</th>            
             <th>Borrowed</th>            
             <th>Days Interval</th>
-            <th>Penalty</th>            
+            <th>Penalty</th>
+            <th>Paid</th>            
         </tr>
         <?php
         foreach($row_logs as $row):
@@ -72,13 +80,14 @@ catch(PDOException $e) {
                 $penalty = $price;
             } // end of if ($status == 'lost')
         ?>
-            <tr>
+            <tr class="log-row">
                 <td><?php echo $id_no; ?></td>
                 <td><?php echo $name; ?></td>
                 <td><?php echo $title; ?></td>
                 <td><?php echo $borrowed_datetime; ?></td>                
-                <td><?php echo $days; ?></td>
-                <td><?php echo $penalty; ?></td>                
+                <td class="row-col-days"><?php echo $days; ?></td>
+                <td class="row-col-penalty"><?php echo $penalty; ?></td>
+                <td class="row-col-paid"><?php echo $paid; ?></td>                
             </tr>
         <?php
         endforeach;

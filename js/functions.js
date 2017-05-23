@@ -25,7 +25,7 @@ $(document).ready(function () {
     confirm_delete_book();
     confirm_delete_student();
     profile_penalties();
-    reports();    
+    reports();
     print();
 
     function login() {
@@ -64,7 +64,7 @@ $(document).ready(function () {
                 var user_role = response_obj.user_role;
 
                 if (num_users == 1 && verified == true) {
-                    $('#page-login .message').text('Verified!');
+                    $('#page-login .message').text('Log-in Successfully!');
                     setTimeout(function () {
                         if (user_role == 'admin') {
                             window.location = 'index.php';
@@ -249,7 +249,7 @@ $(document).ready(function () {
     } // end of function validate_fname_process(fname)
     
     function valid_name(name) {
-        if (name.match('^[a-zA-Z\u00E0-\u00FC. ]{0,}$')) {
+        if (name.match('^[a-zA-Z\u00E0-\u00FC]*$')) {
             return true;
         } else {            
             return false;
@@ -1057,16 +1057,137 @@ $(document).ready(function () {
 
     } // end of delete_student = function()
     
-    function prevent_number_key() {
-        $('#page-add-book #genre').keypress(function (e) {            
+
+function prevent_number_key() {
+        $('#page-add-book #genre, #author').keypress(function (e) {            
             e = e || window.event;
             var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
             var charStr = String.fromCharCode(charCode);
             if (/\d/.test(charStr)) {
                 e.preventDefault();
             }
+        
         }); // end of $('#page-login #username, #page-login #password').keyup(function(e)
-    } // end of function prevent_number_key()
+          
+            $('#page-add-book #genre').bind('keypress', function(e) {
+                if($('#page-add-book #genre').val().length == 0){
+                if (e.which == 32){//space bar
+                e.preventDefault();
+        }
+            }
+        });
+        
+        //special_characters
+            $('#page-add-book #genre, #add-student, #id-no, #register-form, #username').keyup(function()
+            {
+        var yourInput = $(this).val();
+        re = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
+        var isSplChar = re.test(yourInput);
+        if(isSplChar)
+        {
+            var no_spl_char = yourInput.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+            $(this).val(no_spl_char);
+        }
+        });//end of special characters
+           
+              //prevent again spl_chrctr and char  
+            $('#add-student').on('keydown', '#id-no', function(e)
+            {
+                -1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&
+            (!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||
+            (e.shiftKey||48>e.keyCode||57<e.keyCode)&&
+            (96>e.keyCode||105<e.keyCode)&&e.preventDefault()
+            });
+
+            $('#register-form').on('keydown', '#username', function(e)
+            {
+                -1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&
+            (!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||
+            (e.shiftKey||48>e.keyCode||57<e.keyCode)&&
+            (96>e.keyCode||105<e.keyCode)&&e.preventDefault()
+            });
+            //spl_chrctr and char
+
+            $('#add-student #fname, #lname,#mname').keypress(function (e) {            
+            e = e || window.event;
+            var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+            var charStr = String.fromCharCode(charCode);
+            if (/\d/.test(charStr)) {
+                e.preventDefault();
+            }
+        });//end of spl_chrtr and char
+      
+        // $('#add-student #lname').keypress(function (e) {            
+        //     e = e || window.event;
+        //     var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        //     var charStr = String.fromCharCode(charCode);
+        //     if (/\d/.test(charStr)) {
+        //         e.preventDefault();
+        //     }
+        // });
+      
+        // $('#add-student #mname').keypress(function (e) {            
+        //     e = e || window.event;
+        //     var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        //     var charStr = String.fromCharCode(charCode);
+        //     if (/\d/.test(charStr)) {
+        //         e.preventDefault();
+        //     }
+        // });
+      
+        $('#register-form #fname, #mname,#lname').keypress(function (e) {            
+            e = e || window.event;
+            var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+            var charStr = String.fromCharCode(charCode);
+            if (/\d/.test(charStr)) {
+                e.preventDefault();
+            }
+        });
+      
+        // $('#register-form #mname').keypress(function (e) {            
+        //     e = e || window.event;
+        //     var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        //     var charStr = String.fromCharCode(charCode);
+        //     if (/\d/.test(charStr)) {
+        //         e.preventDefault();
+        //     }
+        // });
+      
+        // $('#register-form #lname').keypress(function (e) {            
+        //     e = e || window.event;
+        //     var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        //     var charStr = String.fromCharCode(charCode);
+        //     if (/\d/.test(charStr)) {
+        //         e.preventDefault();
+        //     }
+        // });// end of function prevent_number_key()
+  
+        
+        // $("#add-student, #id-no").keydown(function(o){
+        //             if(o.keyCode == 8){
+        //             }
+        //             else if($(this).val().length >= 9){
+        //                 return false;
+        //             }
+        // });
+            //Only 9 Digit
+        $("#register-form #username, #add-student, #id-no").keydown(function(o){
+                    if(o.keyCode == 8){
+                    }
+                    else if($(this).val().length >= 9){
+                        return false;
+                    }
+        });//end of 9 digit
+
+        $("#add-book #isbn").keydown(function(o){
+                    if(o.keyCode == 8){
+                    }
+                    else if($(this).val().length >= 13){
+                        return false;
+                    }
+        });
+
+       }// end of $('#page-login #username, #page-login #password').keyup(function(e)
 
     function submit_book() {
         check_book_duplicate();
@@ -1177,10 +1298,44 @@ $(document).ready(function () {
                 } // end of if (paid == 'yes')
             }); // end of $('.log-row').each(function()
             
-            $('#unpaid-penalties').html('&#8369;'+total_payables);
-            $('#paid-penalties').html('&#8369;'+total_paid);
+            $('#total-payables').html('&#8369;'+total_payables);
+            $('#total-paid').html('&#8369;'+total_paid);
         } // end of if ($('#page-student-profile').length)
     } // end of function profile_penalties()
+    
+    function reports_penalties() {
+        if ($('#page-reports').length) {
+            var total_payables = 0;
+            var total_paid = 0;
+            var combined_penalties = 0;
+            var pod = $('#pod').val();
+            
+            $('.log-row').each(function() {
+                var days = $(this).find('.row-col-days').text();
+                days = parseInt(days);
+                var paid = $(this).find('.row-col-paid').text();
+                var penalty = $(this).find('.row-col-penalty').text();
+                penalty = parseFloat(penalty);                
+                            
+                if (days >= pod && paid == '') {
+                    total_payables += penalty;
+                } // end of if (days >= pod)
+                
+                if (paid == 'yes') {
+                    total_paid += penalty;
+                } // end of if (paid == 'yes')
+                
+                
+            }); // end of $('.log-row').each(function()
+            
+            var combined_penalties = total_payables + total_paid;
+            
+            $('#total-payables').html('&#8369;'+total_payables);
+            $('#total-paid').html('&#8369;'+total_paid);
+            $('#combined-penalties').html('&#8369;'+combined_penalties);
+            $('#page-reports #total-penalties').show();
+        } // end of if ($('#page-student-profile').length)
+    } // end of function reports_penalties()
     
     function reports() {
         $('#select-report').change(function () {
@@ -1203,25 +1358,46 @@ $(document).ready(function () {
             
             switch(filter) {
                 case 'all':
-                    $('#load-report').load('includes/report-all.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-all.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'borrowed':
-                    $('#load-report').load('includes/report-borrowed.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-borrowed.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'overdue':
-                    $('#load-report').load('includes/report-overdue.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-overdue.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'returned':
-                    $('#load-report').load('includes/report-returned.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-returned.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'daily':
-                    $('#load-report').load('includes/report-daily.inc.php', {date: date}, function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-daily.inc.php', {date: date}, function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'lost':
-                    $('#load-report').load('includes/report-lost.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-lost.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 case 'lost-unpaid':
-                    $('#load-report').load('includes/report-lost-unpaid.inc.php', function() { $.fn.row_counter(); });
+                    $('#load-report').load('includes/report-lost-unpaid.inc.php', function() {
+                        row_counter();
+                        reports_penalties();
+                    });
                     break;
                 default:
             } // end of switch(filter)
@@ -1229,6 +1405,16 @@ $(document).ready(function () {
             //console.log('filter: '+filter);            
         }); // end of $('#report-form').submit(function(e)
     } // end of function reports()
+    
+    function row_counter() {
+        var row_counter = 0
+        $('#page-reports #logs tr').each(function() {
+            row_counter++;
+        }); // end of $('#page-reports #logs tr').each(function()
+        var total_rows = row_counter - 1;
+        console.log('total_rows: '+total_rows);
+        $('#reports-total-results').text(total_rows);
+    } // end of $.fn.row_counter = function()
     
     function print() {
         $(document).on('click', '.print', function(e) {
@@ -1277,13 +1463,3 @@ $(document).ready(function () {
     })();
 
 }); // end of $(document).ready(function()
-
-$.fn.row_counter = function() {
-    var row_counter = 0
-    $('#page-reports #logs tr').each(function() {
-        row_counter++;
-    }); // end of $('#page-reports #logs tr').each(function()
-    var total_rows = row_counter - 1;
-    console.log('total_rows: '+total_rows);
-    $('#reports-total-results').text(total_rows);
-} // end of $.fn.row_counter = function()

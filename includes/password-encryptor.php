@@ -1,5 +1,5 @@
 <?php
-$password = 'test12345';
+$password = 'aCcessdenied321!@#';
 echo 'password: '.$password.'<br>';
 
 $generated_hash = password_hash($password, PASSWORD_DEFAULT);
