@@ -44,7 +44,7 @@
     </nav>
             <div id = "Title-navbar">
                     
-                     <span style="color:#000">   Library Borrowing System  </span>                 
+                       Library Borrowing System                
             </div>
 
 

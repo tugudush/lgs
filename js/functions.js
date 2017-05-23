@@ -1058,17 +1058,109 @@ $(document).ready(function () {
     } // end of delete_student = function()
     
 
-    function prevent_number_key() {
-        $('#page-add-book #genre').keypress(function (e) {            
+function prevent_number_key() {
+        $('#page-add-book #genre, #author').keypress(function (e) {            
             e = e || window.event;
             var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
             var charStr = String.fromCharCode(charCode);
-            if (!charStr.match('^[a-zA-Z\u00E0-\u00FC]*$')) {
+            if (/\d/.test(charStr)) {
                 e.preventDefault();
             }
+        
         }); // end of $('#page-login #username, #page-login #password').keyup(function(e)
-    } // end of function prevent_number_key()
+          
+            $('#page-add-book #genre').bind('keypress', function(e) {
+                if($('#page-add-book #genre').val().length == 0){
+                if (e.which == 32){//space bar
+                e.preventDefault();
+        }
+    }
+        });
+        
+        //special_characters
+            $('#page-add-book #genre').keyup(function()
+            {
+        var yourInput = $(this).val();
+        re = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
+        var isSplChar = re.test(yourInput);
+        if(isSplChar)
+        {
+            var no_spl_char = yourInput.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+            $(this).val(no_spl_char);
+        }
+        });//end of special characters
 
+        $('#add-student #fname, #lname,#mname').keypress(function (e) {            
+            e = e || window.event;
+            var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+            var charStr = String.fromCharCode(charCode);
+            if (/\d/.test(charStr)) {
+                e.preventDefault();
+            }
+        });
+      
+        // $('#add-student #lname').keypress(function (e) {            
+        //     e = e || window.event;
+        //     var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        //     var charStr = String.fromCharCode(charCode);
+        //     if (/\d/.test(charStr)) {
+        //         e.preventDefault();
+        //     }
+        // });
+      
+        // $('#add-student #mname').keypress(function (e) {            
+        //     e = e || window.event;
+        //     var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        //     var charStr = String.fromCharCode(charCode);
+        //     if (/\d/.test(charStr)) {
+        //         e.preventDefault();
+        //     }
+        // });
+      
+        $('#register-form #fname, #mname,#lname').keypress(function (e) {            
+            e = e || window.event;
+            var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+            var charStr = String.fromCharCode(charCode);
+            if (/\d/.test(charStr)) {
+                e.preventDefault();
+            }
+        });
+      
+        // $('#register-form #mname').keypress(function (e) {            
+        //     e = e || window.event;
+        //     var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        //     var charStr = String.fromCharCode(charCode);
+        //     if (/\d/.test(charStr)) {
+        //         e.preventDefault();
+        //     }
+        // });
+      
+        // $('#register-form #lname').keypress(function (e) {            
+        //     e = e || window.event;
+        //     var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+        //     var charStr = String.fromCharCode(charCode);
+        //     if (/\d/.test(charStr)) {
+        //         e.preventDefault();
+        //     }
+        // });// end of function prevent_number_key()
+    
+        $("#register-form #username").keydown(function(o){
+                    if(o.keyCode == 8){
+                    }
+                    else if($(this).val().length >= 9){
+                        return false;
+                    }
+        });
+
+        $("#add-student #id-no").keydown(function(o){
+                    if(o.keyCode == 8){
+                    }
+                    else if($(this).val().length >= 9){
+                        return false;
+                    }
+        });
+
+   }// end of $('#page-login #username, #page-login #password').keyup(function(e)
 
     function submit_book() {
         check_book_duplicate();
@@ -1209,11 +1301,11 @@ $(document).ready(function () {
                 
             }); // end of $('.log-row').each(function()
             
-            var combined_penalties = total_payables + total_paid;            
+            var combined_penalties = total_payables + total_paid;
             
-            $('#total-payables').html('&#8369;'+$.number(total_payables));
-            $('#total-paid').html('&#8369;'+$.number(total_paid));
-            $('#combined-penalties').html('&#8369;'+$.number(combined_penalties));
+            $('#total-payables').html('&#8369;'+total_payables);
+            $('#total-paid').html('&#8369;'+total_paid);
+            $('#combined-penalties').html('&#8369;'+combined_penalties);
             $('#page-reports #total-penalties').show();
         } // end of if ($('#page-student-profile').length)
     } // end of function reports_penalties()

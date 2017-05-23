@@ -35,7 +35,11 @@ check_permissions();
             
             <div id="reports-header" class="clearfix">
                 <img id="reports-logo" src="images/gc-logo.png">            
-                <h1>Gordon College<br>Library Log Reports</h1>
+                <h1><span style="font-size: 30px;"><b>Gordon College<br></b></span>
+        <p>Oval Sports Complex, East Tapinac, Olongapo City 2200<br>
+            Tel No.(047) 224-2089/6969 Fax No. (047) 224-2089<br><span style = "font-size: 25px;">Library Log Reports</span></p>
+                </h1>
+            
             </div><!--/reports-header-->            
             
             <form id="report-form">
@@ -55,13 +59,12 @@ check_permissions();
             </form>
             <input type="hidden" id="pod" name="pod" value="<?php echo $pod; ?>">
             <div id="total-penalties">                
-                Unpaid Penalties: <span id="total-payables"></span><br>
+                Unpaid Penalties:<span id="total-payables"></span><br>
                 Paid Penalties: <span id="total-paid"></span><br>
-                Total Penalties: <span id="combined-penalties"></span>
-            </div><!--/total-penalties-->
+                <!-- Total Penalties:<span id="combined-penalties"></span> --> 
+                </div><!--/total-penalties-->
             
             <div id="load-report">
-                
             </div><!--/load-report-->
         </div><!--/.wrap-->        
     </div><!--/container-->

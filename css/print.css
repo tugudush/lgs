@@ -13,8 +13,8 @@
     #page-reports h1 {
         display: block;
         margin-top: 10px;
-        font-size: 32px;
-        font-weight: bold;
+        font-size: 15px;
+       /* font-weight: bold;*/
     }
     
     #reports-logo {
@@ -23,6 +23,12 @@
         margin: 0 auto;
     }
     
+    #reports-header h1 {
+        /*display: none;*/
+        float: left;
+        font-size: 17px;
+        /*font-size: 1.5rem;*/
+    }
     #logs {
         
     }
