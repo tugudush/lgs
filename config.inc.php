@@ -70,7 +70,7 @@ function connect() {
     $db_name = "lgs";
     $charset = "utf8mb4";
     $db_user = "root";
-    $db_password = "";
+    $db_password = "accessdenied123";
     $db = new PDO('mysql:host='.$host.';dbname='.$db_name.';charset='.$charset, $db_user, $db_password,
                   array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"));
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

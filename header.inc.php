@@ -12,8 +12,8 @@
             <span class="icon-bar"></span>
             </button>
             </div>
+ 
             <div id="navbar" class="navbar-collapse collapse">
-
                 <ul class="nav navbar-nav">
                     <?php if ($admin): ?>
                         <li><a class="fa fa-file-text" href="index.php" title="Logs"> Logs </a></li>

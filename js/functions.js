@@ -1074,11 +1074,11 @@ function prevent_number_key() {
                 if (e.which == 32){//space bar
                 e.preventDefault();
         }
-    }
+            }
         });
         
         //special_characters
-            $('#page-add-book #genre').keyup(function()
+            $('#page-add-book #genre, #add-student, #id-no, #register-form, #username').keyup(function()
             {
         var yourInput = $(this).val();
         re = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
@@ -1089,15 +1089,33 @@ function prevent_number_key() {
             $(this).val(no_spl_char);
         }
         });//end of special characters
+           
+              //prevent again spl_chrctr and char  
+            $('#add-student').on('keydown', '#id-no', function(e)
+            {
+                -1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&
+            (!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||
+            (e.shiftKey||48>e.keyCode||57<e.keyCode)&&
+            (96>e.keyCode||105<e.keyCode)&&e.preventDefault()
+            });
 
-        $('#add-student #fname, #lname,#mname').keypress(function (e) {            
+            $('#register-form').on('keydown', '#username', function(e)
+            {
+                -1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&
+            (!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||
+            (e.shiftKey||48>e.keyCode||57<e.keyCode)&&
+            (96>e.keyCode||105<e.keyCode)&&e.preventDefault()
+            });
+            //spl_chrctr and char
+
+            $('#add-student #fname, #lname,#mname').keypress(function (e) {            
             e = e || window.event;
             var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
             var charStr = String.fromCharCode(charCode);
             if (/\d/.test(charStr)) {
                 e.preventDefault();
             }
-        });
+        });//end of spl_chrtr and char
       
         // $('#add-student #lname').keypress(function (e) {            
         //     e = e || window.event;
@@ -1143,24 +1161,33 @@ function prevent_number_key() {
         //         e.preventDefault();
         //     }
         // });// end of function prevent_number_key()
-    
-        $("#register-form #username").keydown(function(o){
+  
+        
+        // $("#add-student, #id-no").keydown(function(o){
+        //             if(o.keyCode == 8){
+        //             }
+        //             else if($(this).val().length >= 9){
+        //                 return false;
+        //             }
+        // });
+            //Only 9 Digit
+        $("#register-form #username, #add-student, #id-no").keydown(function(o){
                     if(o.keyCode == 8){
                     }
                     else if($(this).val().length >= 9){
                         return false;
                     }
-        });
+        });//end of 9 digit
 
-        $("#add-student #id-no").keydown(function(o){
+        $("#add-book #isbn").keydown(function(o){
                     if(o.keyCode == 8){
                     }
-                    else if($(this).val().length >= 9){
+                    else if($(this).val().length >= 13){
                         return false;
                     }
         });
 
-   }// end of $('#page-login #username, #page-login #password').keyup(function(e)
+       }// end of $('#page-login #username, #page-login #password').keyup(function(e)
 
     function submit_book() {
         check_book_duplicate();

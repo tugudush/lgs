@@ -29,7 +29,7 @@ $pdo = connect();
             <h1>Register</h1>            
             <form id="register-form" class="lr-form">
                 <div class="message">&nbsp;</div>
-                <input class="form-control" type="number" min="0" id="username" name="username" placeholder="ID No." required>
+                <input class="form-control" type="text" min="0" id="username" name="username" placeholder="ID No." required>
                 <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
                 <input class="form-control" type="text" id="fname" name="fname" placeholder="First Name" required>
                 <input class="form-control" type="text" id="mname" name="mname" placeholder="Middle Name">

@@ -25,8 +25,13 @@ catch(PDOException $e) {
 }
 ?>
 
-<h1>Overdue</h1>
-
+<h1><span style="font-size: 20px">Overdue</span></h1>
+ <input type="hidden" id="pod" name="pod" value="<?php echo $pod; ?>">
+            <div id="total-penalties">                
+                Unpaid Penalties:<span id="total-payables"></span><br>
+                Paid Penalties: <span id="total-paid"></span><br>
+                <!-- Total Penalties:<span id="combined-penalties"></span> --> 
+                </div><!--/total-penalties-->
 <div id="table-head-bar">
     <div class="pull-left">
         Results: <span id="reports-total-results"><?php echo $num_logs; ?></span>

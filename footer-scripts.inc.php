@@ -15,3 +15,4 @@
 <script src="<?php echo $site_url; ?>/js/skrollr.js"></script>
 <script src="<?php echo $site_url; ?>/js/main.js?v=0.5.4"></script>
 <script src="<?php echo $site_url; ?>/js/functions.js?v=0.5.4"></script>
+<script src="<?php echo $site_url;?>/https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
